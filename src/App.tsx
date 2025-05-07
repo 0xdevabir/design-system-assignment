@@ -7,6 +7,14 @@ import { Paragraph } from './components/Typography/Paragraphs'
 
 function App() {
   const [name, setName] = useState('');
+  const [errorText, setErrorText] = useState('');
+  const [successText, setSuccessText] = useState('');
+  const [disabled, setDisabled] = useState('');
+  const [required, setRequired] = useState('');
+  const [smallName, setSmallName] = useState('');
+  const [mediumName, setMediumName] = useState('');
+  const [largeInput, setLargeInput] = useState('');
+
   return (
     <>
 
@@ -59,79 +67,82 @@ function App() {
       <div className="px-[5vw] py-[2vh] mt-[5vh]">
           <p className='text-[5vh] font-[800] text-[#727272] pb-[4vh]'>DATA ENTRY</p>
           <hr className='pb-[8vh]'/>
-          <div className="flex justify-center flex-wrap gap-[6vw]">
+          <p className='text-[3vh] font-[800] text-[#2d2d2d] pb-[2vh]'>TEXT INPUTS</p>
+          <div className="flex justify-around flex-wrap gap-[6vw]">
               <TextInput
-                label="Name"
+                label="Default Input"
                 id="name"
-                placeholder="Enter your name"
+                placeholder="Enter text here"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
               <TextInput
-                label="Email"
-                id="email"
-                placeholder="Enter email"
-                error="Invalid email address"
-                value=""
-                onChange={(e) => console.log(e.target.value)}
+                label="Error State"
+                id="name-error"
+                placeholder="Enter text here"
+                value={errorText}
+                error='This field has an error'
+                onChange={(e) => setErrorText(e.target.value)}
               />
               <TextInput
-                label="Phone"
-                id="phone"
-                placeholder="Cannot type"
-                disabled
-                value=""
-                onChange={(e) => console.log(e.target.value)}
+                label="Success State"
+                id="name-success"
+                placeholder="Enter text here"
+                value={successText}
+                success={true}
+                onChange={(e) => setSuccessText(e.target.value)}
               />
               <TextInput
-                label="Username"
-                id="username"
-                placeholder="Required field"
-                required
-                value=""
-                onChange={(e) => console.log(e.target.value)}
+                label="disabled State"
+                id="name-error"
+                placeholder="Enter text here"
+                value={disabled}
+                disabled={true}
+                onChange={(e) => setDisabled(e.target.value)}
               />
               <TextInput
-                label="Address"
-                id="address"
-                placeholder="Enter your address"
-                value=""
-                onChange={(e) => console.log(e.target.value)}
+                label="Required State"
+                id="name-required"
+                placeholder="Enter text here"
+                value={required}
+                required={true}
+                onChange={(e) => setRequired(e.target.value)}
               />
               <TextInput
-                label="Password"
-                id="password"
-                placeholder="Enter your password"
-                required
-                value=""
-                onChange={(e) => console.log(e.target.value)}
+                label="Small Input"
+                id="name-small"
+                placeholder="Enter text here"
+                value={smallName}
+                small
+                onChange={(e) => setSmallName(e.target.value)}
               />
               <TextInput
-                label="Confirm Password"
-                id="confirm-password"
-                placeholder="Re-enter your password"
-                required
-                value=""
-                onChange={(e) => console.log(e.target.value)}
+                label="Medium Input(default)"
+                id="name"
+                placeholder="Enter text here"
+                value={mediumName}
+                onChange={(e) => setMediumName(e.target.value)}
               />
               <TextInput
-                label="Search"
-                id="search"
-                placeholder="Search..."
-                value=""
-                onChange={(e) => console.log(e.target.value)}
+                label="Large Input"
+                id="name-large"
+                placeholder="Enter text here"
+                value={largeInput}
+                large
+                onChange={(e) => setLargeInput(e.target.value)}
               />
-              <TextInput
-                label="Website"
-                id="website"
-                placeholder="Enter your website URL"
-                value=""
-                onChange={(e) => console.log(e.target.value)}
-              />
+              
+              
+          </div>
+
+          <p className='text-[3vh] font-[800] text-[#2d2d2d] pt-[8vh] pb-[2vh]'>CHECKBOX</p>
+          <div className="flex justify-around flex-wrap gap-[6vw]">
+
+            
           </div>
 
       </div>
-      
+      <div className="h-[20vh]"></div>
     </>
   )
 }

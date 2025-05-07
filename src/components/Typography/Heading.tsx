@@ -1,4 +1,3 @@
-import React from 'react';
 
 type HeadingProps = {
   text: string;
@@ -7,7 +6,6 @@ type HeadingProps = {
 
 export function Heading({ text, level = 1 }: HeadingProps) {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
-
   const baseStyles = 'text-[black]';
   const sizeStyles = {
     1: 'text-4xl',

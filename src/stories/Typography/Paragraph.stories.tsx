@@ -1,8 +1,8 @@
 import React from 'react';
-import { Paragraph } from '../components/Typography/Paragraphs';
+import { Paragraph } from '../../components/Typography/Paragraphs';
 
 export default {
-  title: 'Typography/Paragraph',
+  title: 'Components/Typography/Paragraph',
   component: Paragraph,
   args: {
     text: 'This is a paragraph of text.',

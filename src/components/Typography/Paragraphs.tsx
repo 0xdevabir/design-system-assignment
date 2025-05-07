@@ -12,5 +12,5 @@ export function Paragraph({ text, size = 'base' }: ParagraphProps) {
     lg: 'text-lg',
   };
 
-  return <p className={`${sizeStyles[size]} text-gray-700`}>{text}</p>;
+  return <p className={`${sizeStyles[size]} text-[black]`}>{text}</p>;
 }

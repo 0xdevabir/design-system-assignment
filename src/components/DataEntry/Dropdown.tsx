@@ -14,6 +14,8 @@ type SelectProps = {
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   required?: boolean;
   disabled?: boolean;
+    error?: string;
+    success?: boolean;
 };
 
 export function Dropdown({
@@ -24,6 +26,8 @@ export function Dropdown({
   onChange,
   required,
   disabled,
+  error,
+    success,
 }: SelectProps) {
   return (
     <div className="space-y-1">
@@ -33,16 +37,23 @@ export function Dropdown({
         value={value}
         onChange={onChange}
         disabled={disabled}
-        className={`w-[20vw] pl-3 pr-18 py-2 border rounded-md text-sm outline-none ${
-          disabled ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'border-gray-300 focus:ring-2 focus:ring-blue-500'
+        className={`w-full md:w-[20vw] pl-3 pr-18 py-2 border rounded-md text-sm outline-none 
+            ${disabled ? 'bg-gray-100 cursor-not-allowed text-gray-400' : ''}
+            ${error ? 'border-red-500' : 'border-gray-300 focus:ring-2 focus:ring-blue-500'}
+            ${success ? 'border-green-500' : 'border-gray-300 focus:ring-2 focus:ring-blue-500'}
         }`}
       >
+        
+
+
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>
         ))}
       </select>
+      {error && <p className="text-sm text-red-500">{error}</p>}
+        {success && <p className="text-sm text-green-500">Success</p>}
     </div>
   );
 }

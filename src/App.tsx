@@ -18,7 +18,12 @@ function App() {
   const [largeInput, setLargeInput] = useState('');
 
 
-  const [option1, setOption1] = useState('male');
+  const [option1, setOption1] = useState('');
+  const [option2, setOption2] = useState('');
+  const [option3, setOption3] = useState('');
+  const [option4, setOption4] = useState('');
+
+
 
 
   const [dob, setDob] = useState('');
@@ -31,7 +36,7 @@ function App() {
       <div className="px-[5vw] py-[2vh]">
           <p className='text-[5vh] font-[800] text-[#727272] pb-[4vh]'>TYPOGRAPHY</p>
           <hr className='pb-[8vh]'/>
-          <div className="flex justify-around flex-wrap gap-[6vw]">
+          <div className="flex justify-between flex-wrap gap-[6vw]">
               <div className="">
                 <p className='text-[18px] py-[6px]'>Headings...</p>
                 <Heading text='H1 Heading' level={1} />
@@ -76,7 +81,7 @@ function App() {
           <p className='text-[5vh] font-[800] text-[#727272] pb-[4vh]'>DATA ENTRY</p>
           <hr className='pb-[8vh]'/>
           <p className='text-[3vh] font-[800] text-[#2d2d2d] pb-[2vh]'>TEXT INPUTS</p>
-          <div className="flex justify-around flex-wrap gap-[6vw]">
+          <div className="flex justify-between flex-wrap gap-[6vw]">
               <TextInput
                 label="Default Input"
                 id="name"
@@ -144,12 +149,49 @@ function App() {
           </div>
 
           <p className='text-[3vh] font-[800] text-[#2d2d2d] pt-[8vh] pb-[2vh]'>Dropdown</p>
-          <div className="flex justify-around flex-wrap gap-[6vw]">
+          <div className="flex justify-between flex-wrap gap-[6vw]">
               <Dropdown
                 label="Basic Dropdown"
-                id="gender"
+                id="dropdown"
                 value={option1}
                 onChange={(e) => setOption1(e.target.value)}
+                options={[
+                  { label: 'Option 1', value: 'Option 1' },
+                  { label: 'Option 2', value: 'Option 2' },
+                  { label: 'Option 3', value: 'Option 3' },
+                ]}
+              />
+              
+              <Dropdown
+                label="Error Dropdown"
+                id="dropdown-error"
+                value={option3}
+                error='This field has an error'
+                onChange={(e) => setOption3(e.target.value)}
+                options={[
+                  { label: 'Option 1', value: 'Option 1' },
+                  { label: 'Option 2', value: 'Option 2' },
+                  { label: 'Option 3', value: 'Option 3' },
+                ]}
+              />
+              <Dropdown
+                label="Success Dropdown"
+                id="dropdown-success"
+                value={option4}
+                success={true}
+                onChange={(e) => setOption4(e.target.value)}
+                options={[
+                  { label: 'Option 1', value: 'Option 1' },
+                  { label: 'Option 2', value: 'Option 2' },
+                  { label: 'Option 3', value: 'Option 3' },
+                ]}
+              />
+              <Dropdown
+                label="Disabled Dropdown"
+                id="dropdown-disabled"
+                value={option2}
+                disabled={true}
+                onChange={(e) => setOption2(e.target.value)}
                 options={[
                   { label: 'Option 1', value: 'Option 1' },
                   { label: 'Option 2', value: 'Option 2' },
@@ -160,13 +202,27 @@ function App() {
 
 
           <p className='text-[3vh] font-[800] text-[#2d2d2d] pt-[8vh] pb-[2vh]'>DATE PICKER</p>
-          <div className="flex justify-around flex-wrap gap-[6vw]">
+          <div className="flex justify-between flex-wrap gap-[6vw]">
           <DatePicker
-              label="Date of Birth"
+              label="Default Date Picker"
               id="dob"
               value={dob}
               onChange={(e) => setDob(e.target.value)}
               required
+            />
+            <DatePicker
+              label="Success Date Picker"
+              id="dob-success"
+              value={Ddp}
+              onChange={(e) => setDdp(e.target.value)}
+              success
+            />
+            <DatePicker
+              label="error Date Picker"
+              id="dob-disabled"
+              value={Ddp}
+              onChange={(e) => setDdp(e.target.value)}
+              error='Please select a valid date'
             />
             <DatePicker
               label="Disabled Date Picker"
@@ -179,6 +235,32 @@ function App() {
 
 
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div className="px-[5vw] py-[2vh] mt-[5vh]">
+          <p className='text-[5vh] font-[800] text-[#727272] pb-[4vh]'>FEEDBACK</p>
+          <hr className='pb-[8vh]'/>
+          <p className='text-[3vh] font-[800] text-[#2d2d2d] pb-[2vh]'>ALERT BANNER</p>
+          <div className="flex justify-between flex-wrap gap-[6vw]">
+
+          </div>
+
+      </div>
+
       <div className="h-[20vh]"></div>
     </>
   )

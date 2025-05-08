@@ -6,6 +6,8 @@ import { Label } from './components/Typography/Label'
 import { Paragraph } from './components/Typography/Paragraphs'
 import { Dropdown } from './components/DataEntry/Dropdown'
 import { DatePicker } from './components/DataEntry/DatePicker'
+import { AlertBanner } from './components/Feedback/AlertBanner'
+import { useToast } from './components/Feedback/useToast';
 
 function App() {
   const [name, setName] = useState('');
@@ -28,6 +30,13 @@ function App() {
 
   const [dob, setDob] = useState('');
   const [Ddp, setDdp] = useState('');
+
+  const [show, setShow] = useState(true);
+
+
+  const { showToast } = useToast();
+
+
   return (
     <>
 
@@ -256,8 +265,51 @@ function App() {
           <hr className='pb-[8vh]'/>
           <p className='text-[3vh] font-[800] text-[#2d2d2d] pb-[2vh]'>ALERT BANNER</p>
           <div className="flex justify-between flex-wrap gap-[6vw]">
-
+              {show && (
+              <AlertBanner
+                type="info"
+                title="Information"
+                message="This is an information alert banner. You can close it by clicking the X."
+                onClose={() => setShow(false)}
+              />
+            )}
+            <AlertBanner
+              type="success"
+              title="Success!"
+              message="Your action was completed successfully."
+            />
+            <AlertBanner
+              type="warning"
+              title="Warning!"
+              message="This action might have unexpected consequences."
+            />
+            <AlertBanner
+              type="error"
+              title="Error!"
+              message="Something went wrong. Please try again."
+            />
           </div>
+
+          <p className='text-[3vh] font-[800] text-[#2d2d2d] pb-[2vh] pt-[8vh]'>Toast/Snakebar Notifications</p>
+          <div className="flex justify-between flex-wrap gap-[6vw]">
+              <button onClick={() => showToast('info', 'This is an info message')}
+                className='bg-[#a0b1ff] text-[#000b3b] font-[600] px-18 py-4 rounded-[5px] cursor-pointer w-full md:w-[20vw]'>
+                Show Info
+              </button>
+              <button onClick={() => showToast('success', 'Action was successful!')}
+                className='bg-[#afffa3] text-[#0c5a00] font-[600] px-18 py-4 rounded-[5px] cursor-pointer w-full md:w-[20vw]'>
+                Show Success
+              </button>
+              <button onClick={() => showToast('warning', 'This is a warning')}
+                className='bg-[#ffd99d] text-[#4f3100] font-[600] px-18 py-4 rounded-[5px] cursor-pointer w-full md:w-[20vw]'>
+                Show Warning
+              </button>
+              <button onClick={() => showToast('error', 'Something went wrong')}
+                className='bg-[#ffa1a1] text-[#590000] font-[600] px-18 py-4 rounded-[5px] cursor-pointer w-full md:w-[20vw]'>
+                Show Error
+              </button>
+          </div>
+
 
       </div>
 

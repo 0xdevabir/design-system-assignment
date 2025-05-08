@@ -38,7 +38,7 @@ export function TextInput({
         value={value}
         onChange={onChange}
         disabled={disabled}
-        className={`w-full pl-3 pr-18 py-3 border rounded-md text-sm outline-none transition
+        className={`w-full md:w-[20vw] pl-3 pr-18 py-3 border rounded-md text-sm outline-none transition
           ${disabled ? 'bg-gray-100 cursor-not-allowed text-gray-400' : ''}
           ${error ? 'border-red-500' : 'border-gray-300 focus:ring-2 focus:ring-blue-500'}
           ${success ? 'border-green-500' : 'border-gray-300 focus:ring-2 focus:ring-blue-500'}

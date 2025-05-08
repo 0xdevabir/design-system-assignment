@@ -4,6 +4,8 @@ import { TextInput } from './components/DataEntry/TextInput'
 import { Heading } from './components/Typography/Heading'
 import { Label } from './components/Typography/Label'
 import { Paragraph } from './components/Typography/Paragraphs'
+import { Dropdown } from './components/DataEntry/Dropdown'
+import { DatePicker } from './components/DataEntry/DatePicker'
 
 function App() {
   const [name, setName] = useState('');
@@ -15,6 +17,12 @@ function App() {
   const [mediumName, setMediumName] = useState('');
   const [largeInput, setLargeInput] = useState('');
 
+
+  const [option1, setOption1] = useState('male');
+
+
+  const [dob, setDob] = useState('');
+  const [Ddp, setDdp] = useState('');
   return (
     <>
 
@@ -135,11 +143,40 @@ function App() {
               
           </div>
 
-          <p className='text-[3vh] font-[800] text-[#2d2d2d] pt-[8vh] pb-[2vh]'>CHECKBOX</p>
+          <p className='text-[3vh] font-[800] text-[#2d2d2d] pt-[8vh] pb-[2vh]'>Dropdown</p>
           <div className="flex justify-around flex-wrap gap-[6vw]">
-
-            
+              <Dropdown
+                label="Basic Dropdown"
+                id="gender"
+                value={option1}
+                onChange={(e) => setOption1(e.target.value)}
+                options={[
+                  { label: 'Option 1', value: 'Option 1' },
+                  { label: 'Option 2', value: 'Option 2' },
+                  { label: 'Option 3', value: 'Option 3' },
+                ]}
+              />
           </div>
+
+
+          <p className='text-[3vh] font-[800] text-[#2d2d2d] pt-[8vh] pb-[2vh]'>DATE PICKER</p>
+          <div className="flex justify-around flex-wrap gap-[6vw]">
+          <DatePicker
+              label="Date of Birth"
+              id="dob"
+              value={dob}
+              onChange={(e) => setDob(e.target.value)}
+              required
+            />
+            <DatePicker
+              label="Disabled Date Picker"
+              id="dob-disabled"
+              value={Ddp}
+              onChange={(e) => setDdp(e.target.value)}
+              disabled
+            />
+          </div>
+
 
       </div>
       <div className="h-[20vh]"></div>
